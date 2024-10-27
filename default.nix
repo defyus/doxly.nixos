@@ -30,8 +30,6 @@ let
             # Base64 encode the passphrase to handle special characters
             export GPG_PASSPHRASE="$(printf %s "$passphrase")"
 
-            # Run the rebuild
-            exec sudo -E nixos-rebuild "$@"
             if [ -z "$GPG_PASSPHRASE" ]; then
               echo >&2 "Error: GPG_PASSPHRASE environment variable is not set"
               exit 1
